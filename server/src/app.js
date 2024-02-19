@@ -3,21 +3,32 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
 //connectDB
 const connectDB = require("../db/connect");
 const authenticateUser = require("./middleware/authentication");
-
 //routers
 const NameRouter = require("./routes/testRoutes");
-
 app.use(express.json());
 app.use(cors());
-
 //routes
-app.use("/api/v1/test", NameRouter);
 
+const DoctorRouter =require("./routes/doctorsRoutes");
+// error handler
+const notFoundMiddleware = require("./middleware/not-found");
+const errorHandlerMiddleware = require("./middleware/error-handler");
+
+app.get("/", (req, res) => {
+  res.send("login");
+});
+
+
+
+app.use("/api/v1/doctors", DoctorRouter);
+
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 const port = process.env.PORT || 5000;
+
 
 const start = async () => {
   try {
