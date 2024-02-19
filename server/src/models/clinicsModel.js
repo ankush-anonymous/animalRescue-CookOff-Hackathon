@@ -20,9 +20,6 @@ const ClinicsSchema = new mongoose.Schema({
         ],
     unique:true,
     },
-    doctors:{
-      type:String
-    },
     specialization:{
       type:String,
     },
