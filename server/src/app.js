@@ -17,6 +17,7 @@ const NGORouter =require("./routes/ngosRoutes");
 const AnimalRouter =require("./routes/animalsRoutes");
 const IssueRouter =require("./routes/issuesRoutes");
 const VolunterRouter =require("./routes/voluntersRoutes");
+const BlogRouter =require("./routes/blogsRoutes");
 
 // error handler
 const notFoundMiddleware = require("./middleware/not-found");
@@ -32,6 +33,7 @@ app.use("/api/v1/ngos", NGORouter);
 app.use("/api/v1/animals", AnimalRouter);
 app.use("/api/v1/issues", IssueRouter);
 app.use("/api/v1/volunters", VolunterRouter);
+app.use("/api/v1/blogs", BlogRouter);
 
 
 app.use(notFoundMiddleware);
