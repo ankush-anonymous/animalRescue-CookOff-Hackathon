@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import {
   Box,
   Grid,
@@ -16,74 +17,89 @@ import {
 import NavbarComponent from "../Components/NavbarComponent";
 import SearchIcon from "@mui/icons-material/Search";
 
-const ViewNGOPage = () => {
-  const ngos = [
-    {
-      _id: "65d3a6163121ba1d3cd92d29",
-      name: "Wildlife Rescue Society",
-      address: "456 Oak Avenue, Townsville",
-      phoneno: 9876543210,
-      isVerified: false,
-      established: "2018-09-22T00:00:00.000Z",
-      certification: "Non-profit",
-      locationOfService: "Townsville region",
-      __v: 0,
-      image:
-        "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
-    },
-    {
-      _id: "65d3a6163121ba1d3cd92d29",
-      name: "Wildlife Rescue Society",
-      address: "456 Oak Avenue, Townsville",
-      phoneno: 9876543210,
-      isVerified: false,
-      established: "2018-09-22T00:00:00.000Z",
-      certification: "Non-profit",
-      locationOfService: "Townsville region",
-      __v: 0,
-      image:
-        "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
-    },
-    {
-      _id: "65d3a6163121ba1d3cd92d29",
-      name: "Wildlife Rescue Society",
-      address: "456 Oak Avenue, Townsville",
-      phoneno: 9876543210,
-      isVerified: false,
-      established: "2018-09-22T00:00:00.000Z",
-      certification: "Non-profit",
-      locationOfService: "Townsville region",
-      __v: 0,
-      image:
-        "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
-    },
-    {
-      _id: "65d3a6163121ba1d3cd92d29",
-      name: "Wildlife Rescue Society",
-      address: "456 Oak Avenue, Townsville",
-      phoneno: 9876543210,
-      isVerified: false,
-      established: "2018-09-22T00:00:00.000Z",
-      certification: "Non-profit",
-      locationOfService: "Townsville region",
-      __v: 0,
-      image:
-        "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
-    },
-    {
-      _id: "65d3a6163121ba1d3cd92d29",
-      name: "Wildlife Rescue Society",
-      address: "456 Oak Avenue, Townsville",
-      phoneno: 9876543210,
-      isVerified: false,
-      established: "2018-09-22T00:00:00.000Z",
-      certification: "Non-profit",
-      locationOfService: "Townsville region",
-      __v: 0,
-      image:
-        "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
-    },
-  ];
+function ViewNGOPage() { 
+  const [NgosData, setNgosData] = useState([]);
+  useEffect(() => {
+    fetchNgosData();
+  }, []);
+
+  const fetchNgosData = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/v1/ngos"
+      );
+      setNgosData(response.data.data); 
+    } catch (error) {
+      console.error("Error fetching blogs data:", error);
+    }
+  };
+  // const ngos = [
+  //   {
+  //     _id: "65d3a6163121ba1d3cd92d29",
+  //     name: "Wildlife Rescue Society",
+  //     address: "456 Oak Avenue, Townsville",
+  //     phoneno: 9876543210,
+  //     isVerified: false,
+  //     established: "2018-09-22T00:00:00.000Z",
+  //     certification: "Non-profit",
+  //     locationOfService: "Townsville region",
+  //     __v: 0,
+  //     image:
+  //       "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
+  //   },
+  //   {
+  //     _id: "65d3a6163121ba1d3cd92d29",
+  //     name: "Wildlife Rescue Society",
+  //     address: "456 Oak Avenue, Townsville",
+  //     phoneno: 9876543210,
+  //     isVerified: false,
+  //     established: "2018-09-22T00:00:00.000Z",
+  //     certification: "Non-profit",
+  //     locationOfService: "Townsville region",
+  //     __v: 0,
+  //     image:
+  //       "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
+  //   },
+  //   {
+  //     _id: "65d3a6163121ba1d3cd92d29",
+  //     name: "Wildlife Rescue Society",
+  //     address: "456 Oak Avenue, Townsville",
+  //     phoneno: 9876543210,
+  //     isVerified: false,
+  //     established: "2018-09-22T00:00:00.000Z",
+  //     certification: "Non-profit",
+  //     locationOfService: "Townsville region",
+  //     __v: 0,
+  //     image:
+  //       "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
+  //   },
+  //   {
+  //     _id: "65d3a6163121ba1d3cd92d29",
+  //     name: "Wildlife Rescue Society",
+  //     address: "456 Oak Avenue, Townsville",
+  //     phoneno: 9876543210,
+  //     isVerified: false,
+  //     established: "2018-09-22T00:00:00.000Z",
+  //     certification: "Non-profit",
+  //     locationOfService: "Townsville region",
+  //     __v: 0,
+  //     image:
+  //       "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
+  //   },
+  //   {
+  //     _id: "65d3a6163121ba1d3cd92d29",
+  //     name: "Wildlife Rescue Society",
+  //     address: "456 Oak Avenue, Townsville",
+  //     phoneno: 9876543210,
+  //     isVerified: false,
+  //     established: "2018-09-22T00:00:00.000Z",
+  //     certification: "Non-profit",
+  //     locationOfService: "Townsville region",
+  //     __v: 0,
+  //     image:
+  //       "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
+  //   },
+  // ];
   return (
     <>
       <NavbarComponent />
@@ -161,7 +177,7 @@ const ViewNGOPage = () => {
         {/* NGO Cards  */}
         <section>
           <Grid container spacing={3} sx={{ padding: "20px" }}>
-            {ngos.map((ngo) => (
+            {NgosData.map((ngo) => (
               <Grid item xs={12} sm={6} md={4} key={ngo._id}>
                 <Card>
                   <CardMedia
