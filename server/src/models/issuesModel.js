@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const issuesSchema = new mongoose.Schema({ 
 AnimalId:{
-    type:Number
+    type:String
 },
 Health_Condition:{
     type:String

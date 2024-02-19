@@ -32,6 +32,7 @@ const ngosSchema = new mongoose.Schema({
         locationOfService:{
             type:String
         },
+
 })
 
 module.exports = mongoose.model("ngos", ngosSchema);

@@ -18,6 +18,8 @@ const AnimalRouter =require("./routes/animalsRoutes");
 const IssueRouter =require("./routes/issuesRoutes");
 const VolunterRouter =require("./routes/voluntersRoutes");
 const BlogRouter =require("./routes/blogsRoutes");
+const authRouter = require('./routes/emailauthorizationRoutes');
+
 
 // error handler
 const notFoundMiddleware = require("./middleware/not-found");
@@ -27,6 +29,7 @@ app.get("/", (req, res) => {
   res.send("login");
 });
 
+app.use('/api/v1/auth', authRouter);
 app.use("/api/v1/doctors", DoctorRouter);
 app.use("/api/v1/clinics", ClinicRouter);
 app.use("/api/v1/ngos", NGORouter);
@@ -34,6 +37,7 @@ app.use("/api/v1/animals", AnimalRouter);
 app.use("/api/v1/issues", IssueRouter);
 app.use("/api/v1/volunters", VolunterRouter);
 app.use("/api/v1/blogs", BlogRouter);
+app.use('/api/v1/auth', authRouter);
 
 
 app.use(notFoundMiddleware);
