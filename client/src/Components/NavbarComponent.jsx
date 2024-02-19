@@ -68,13 +68,29 @@ function NavbarComponent() {
             backgroundColor: "#FFBE98",
             height: 100,
             textAlign: "center",
-
             justifyContent: "center",
           }}
         >
-          <Typography variant="h3" sx={{ color: "black" }}>
-            animalRescue
-          </Typography>
+          <Box
+            sx={{
+              // padding: "5px",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              src="https://res.cloudinary.com/dsx8eh1hj/image/upload/v1708374951/happytaills_zu403m.png"
+              alt="Logo"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                width: "auto",
+                height: "auto",
+              }}
+            />
+          </Box>
         </AppBar>
 
         {/* SubBar with less height */}
