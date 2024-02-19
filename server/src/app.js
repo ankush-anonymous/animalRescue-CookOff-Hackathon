@@ -7,17 +7,39 @@ const cors = require("cors");
 //connectDB
 const connectDB = require("../db/connect");
 const authenticateUser = require("./middleware/authentication");
-
-//routers
-const NameRouter = require("./routes/testRoutes");
-
 app.use(express.json());
 app.use(cors());
 
 //routes
-app.use("/api/v1/test", NameRouter);
+const DoctorRouter =require("./routes/doctorsRoutes");
+const ClinicRouter =require("./routes/clinicsRoutes");
+const NGORouter =require("./routes/ngosRoutes");
+const AnimalRouter =require("./routes/animalsRoutes");
+const IssueRouter =require("./routes/issuesRoutes");
+const VolunterRouter =require("./routes/voluntersRoutes");
+const BlogRouter =require("./routes/blogsRoutes");
 
+// error handler
+const notFoundMiddleware = require("./middleware/not-found");
+const errorHandlerMiddleware = require("./middleware/error-handler");
+
+app.get("/", (req, res) => {
+  res.send("login");
+});
+
+app.use("/api/v1/doctors", DoctorRouter);
+app.use("/api/v1/clinics", ClinicRouter);
+app.use("/api/v1/ngos", NGORouter);
+app.use("/api/v1/animals", AnimalRouter);
+app.use("/api/v1/issues", IssueRouter);
+app.use("/api/v1/volunters", VolunterRouter);
+app.use("/api/v1/blogs", BlogRouter);
+
+
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 const port = process.env.PORT || 5000;
+
 
 const start = async () => {
   try {
