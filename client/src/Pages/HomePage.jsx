@@ -10,12 +10,15 @@ import {
   Avatar,
   CardHeader,
   CardContent,
+  TextField,
+  Button,
 } from "@mui/material";
 import NumberScrollAnimation from "../Components/NumberScrollAnimation";
 import TrackChangesIcon from "@mui/icons-material/TrackChanges";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import CarouselComponent from "../Components/CarouselComponent";
+import SearchIcon from "@mui/icons-material/Search";
 
 const HomePage = () => {
   const [isHovered1, setIsHovered1] = React.useState(false);
@@ -39,12 +42,12 @@ const HomePage = () => {
               <Grid item xs={12} md={6}>
                 <Box
                   sx={{
-                    display: "flex",
+                    display: "flex-col",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
                 >
-                  <Box sx={{ alignItems: "flex-start" }}>
+                  <Box sx={{ alignItems: "flex-start", marginBottom: "50px" }}>
                     <Typography variant="h2">Lorem Ipsum</Typography>
                     {/* For smaller screens (xs), use variant="body2" */}
                     <Typography variant="h6">
@@ -58,6 +61,40 @@ const HomePage = () => {
                       Consequuntur corporis nemo suscipit ad officiis possimus
                       cumque autem est quod laboriosam?
                     </Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      // padding: "20px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        maxWidth: "xl",
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <TextField
+                        fullWidth
+                        variant="outlined"
+                        placeholder="Search"
+                        // onChange={search}
+                        // value={query}
+                        sx={{ mr: 1 }}
+                      />
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        // onClick={search}
+                        sx={{ p: 2 }}
+                      >
+                        Upload
+                      </Button>
+                    </Box>
                   </Box>
                 </Box>
               </Grid>

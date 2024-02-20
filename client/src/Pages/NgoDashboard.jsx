@@ -1,4 +1,13 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import NgoNavbarComponent from "../Components/NgoNavbarComponent";
 import PetsIcon from "@mui/icons-material/Pets";
@@ -306,7 +315,7 @@ const NgoDashboard = () => {
                     display: "flex",
                   }}
                 >
-                  <Button variant="outlined">Add Animal</Button>
+                  <Button variant="outlined">Add Blogs</Button>
                 </Box>
               </Box>
             </Grid>
