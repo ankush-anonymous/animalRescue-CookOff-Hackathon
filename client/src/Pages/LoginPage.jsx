@@ -1,128 +1,140 @@
-import React, { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import TextField from "@mui/material/TextField";
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
-import axios from "axios";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import { Link } from "react-router-dom";
-import { Grid } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const LoginPage = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const [access, setAccess] = useState("");
+const theme = createTheme();
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post("/api/v1/employee/login", {
-        phoneNumber,
-        password,
-      });
-      const { token, role, SalesExecId } = response.data;
-      localStorage.setItem("token", token);
-      localStorage.setItem("role", role);
-      if (role === "SalesExec") {
-        localStorage.setItem("SalesExec-authorized", "true");
-      } else if (role === "Admin") {
-        localStorage.setItem("Admin-authorized", "true");
-      }
-      localStorage.setItem("SalesExecId", SalesExecId);
-      setAccess(role);
-      setShowSuccess(true);
-      setShowError(false);
-    } catch (error) {
-      setShowSuccess(false);
-      setShowError(true);
-    }
+export default function LoginPage() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
   };
 
-  useEffect(() => {
-    localStorage.clear();
-  }, []);
-
   return (
-    <>
-      <Box>
-        <Grid container spacing={2}>
-          <Grid item xs={0} md={8}>
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: "100vh" }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1hbCUyMGNhcmV8ZW58MHx8MHx8fDA%3D)",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: (t) =>
+              t.palette.mode === "light"
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={5}
+          padding={1}
+          component={Paper}
+          elevation={6}
+          square
+        >
+          <Box
+            sx={{
+              my: 8,
+              border: "1px solid",
+              display: "flex",
+              borderRadius: "1rem",
+              flexDirection: "column",
+              alignItems: "center",
+              mx: 4,
+
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "100px",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+
+            <Typography component="h1" variant="h5">
+              Login
+            </Typography>
             <Box
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-                display: "flex",
-              }}
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 3 }}
             >
-              <img
-                src="https://paradepets.com/.image/t_share/MTkxMzY1Nzg4NjczMzIwNTQ2/cutest-dog-breeds-jpg.jpg"
-                alt=""
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
-                width: "50%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "40px",
-              }}
-            >
-              <Typography variant="h4" sx={{ marginBottom: "20px" }}>
-                LENDER APP
-              </Typography>
-
-              <TextField
-                label="Phone Number"
-                variant="outlined"
-                margin="normal"
-                fullWidth
-                InputProps={{
-                  style: { borderColor: "#739072" },
-                }}
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-              />
-
-              <TextField
-                label="Password"
-                type="password"
-                variant="outlined"
-                margin="normal"
-                fullWidth
-                InputProps={{
-                  style: { borderColor: "#739072" },
-                }}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox value="allowExtraEmails" color="primary" />
+                    }
+                    label="Remember me...!"
+                  />
+                </Grid>
+              </Grid>
               <Button
+                type="submit"
+                fullWidth
                 variant="contained"
-                color="primary"
-                sx={{
-                  marginTop: "20px",
-                  backgroundColor: "#557C55",
-                  "&:hover": {
-                    backgroundColor: "#739072",
-                  },
-                }}
-                onClick={handleLogin}
+                sx={{ mt: 3, mb: 2 }}
               >
                 Login
               </Button>
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                  <Link href="#" variant="body2">
+                    Forget Password?
+                  </Link>
+                </Grid>
+              </Grid>
             </Box>
-          </Grid>
+          </Box>
         </Grid>
-      </Box>
-    </>
+      </Grid>
+    </ThemeProvider>
   );
-};
-
-export default LoginPage;
+}
