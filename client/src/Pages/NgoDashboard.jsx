@@ -1,6 +1,20 @@
+<<<<<<< HEAD
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+=======
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React from "react";
+>>>>>>> 21354b97f678358eb399c1c9888b83f7895be2aa
 import NgoNavbarComponent from "../Components/NgoNavbarComponent";
 import FooterComponent from "../Components/FooterComponenent";
 import PetsIcon from "@mui/icons-material/Pets";
@@ -320,7 +334,7 @@ const NgoDashboard = () => {
                     display: "flex",
                   }}
                 >
-                  <Button variant="outlined">Add Animal</Button>
+                  <Button variant="outlined">Add Blogs</Button>
                 </Box>
               </Box>
             </Grid>
