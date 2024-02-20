@@ -1,5 +1,6 @@
 import React from "react";
 import NavbarComponent from "../Components/NavbarComponent";
+import FooterComponent from "../Components/FooterComponenent"
 import {
   Box,
   Grid,
@@ -799,6 +800,7 @@ const HomePage = () => {
           </Box>
         </section>
       </Box>
+      <FooterComponent />
     </>
   );
 };

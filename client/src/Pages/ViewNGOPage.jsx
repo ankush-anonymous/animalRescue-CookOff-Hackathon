@@ -15,6 +15,7 @@ import {
   CardMedia,
 } from "@mui/material";
 import NavbarComponent from "../Components/NavbarComponent";
+import FooterComponent from "../Components/FooterComponenent";
 import SearchIcon from "@mui/icons-material/Search";
 
 function ViewNGOPage() {
@@ -201,6 +202,7 @@ function ViewNGOPage() {
           </Grid>
         </section>
       </Box>
+      <FooterComponent/>
     </>
   );
 }

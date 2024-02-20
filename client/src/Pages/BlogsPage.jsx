@@ -1,4 +1,5 @@
 import NavbarComponent from "../Components/NavbarComponent";
+import FooterComponent from "../Components/FooterComponenent"
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -136,6 +137,7 @@ function BlogsPage() {
               </div>
             </div>
           </div>
+
           <div className="w-1/3 text-center ml-2 border ">
             <div className="h-32 w-full  ">
               <p className="text-center font-semibold p-4 text-2xl bg-gray-400 mb-2">
@@ -144,12 +146,16 @@ function BlogsPage() {
               {BlogsData.map((blog, index) => (
                 <OtherBlogs blog={blog} />
               ))}
+
             </div>
           </div>
         </div>
       </div>
+    <FooterComponent />  
     </>
+    
   );
+
 }
 
 export default BlogsPage;

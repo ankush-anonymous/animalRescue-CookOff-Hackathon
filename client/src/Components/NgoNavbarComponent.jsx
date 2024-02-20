@@ -26,7 +26,7 @@ function NgoNavbarComponent() {
   const tabs = [
     { label: "Home", link: "/" },
     { label: "Blogs", link: "/blogs" },
-    { label: "Voulenteer", link: "/volunteer" },
+    { label: "Volunteer", link: "/volunteer" },
     { label: "NGO", link: "/ngo" },
     { label: "Login", link: "/login" },
   ];

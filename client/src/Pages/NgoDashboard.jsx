@@ -1,6 +1,8 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import NgoNavbarComponent from "../Components/NgoNavbarComponent";
+import FooterComponent from "../Components/FooterComponenent";
 import PetsIcon from "@mui/icons-material/Pets";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import FaceIcon from "@mui/icons-material/Face";
@@ -18,32 +20,44 @@ import AllBlogsListComponent from "../Components/AllBlogsListComponent";
 import CarouselComponentForNGO from "../Components/CarouselComponentForNGO";
 
 const NgoDashboard = () => {
-  const animals = [
-    {
-      name: "Max",
-      color: "Brown",
-      Type: "Dog",
-      Breed: "Labrador Retriever",
-      photo:
-        "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
-      Identification_Mark: "Small scar on the left ear",
-      locationOfFound: "Park",
-      Condition: "Healthy",
-    },
-    {
-      name: "Max",
-      color: "Brown",
-      Type: "Dog",
-      Breed: "Labrador Retriever",
-      photo:
-        "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1hbCUyMGNhcmV8ZW58MHx8MHx8fDA%3D",
-      Identification_Mark: "Small scar on the left ear",
-      locationOfFound: "Park",
-      Condition: "Healthy",
-    },
-    // Add more animals as needed
-  ];
-
+  // const animals = [
+  //   {
+  //     name: "Max",
+  //     color: "Brown",
+  //     Type: "Dog",
+  //     Breed: "Labrador Retriever",
+  //     photo:
+  //       "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
+  //     Identification_Mark: "Small scar on the left ear",
+  //     locationOfFound: "Park",
+  //     Condition: "Healthy",
+  //   },
+  //   {
+  //     name: "Max",
+  //     color: "Brown",
+  //     Type: "Dog",
+  //     Breed: "Labrador Retriever",
+  //     photo:
+  //       "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1hbCUyMGNhcmV8ZW58MHx8MHx8fDA%3D",
+  //     Identification_Mark: "Small scar on the left ear",
+  //     locationOfFound: "Park",
+  //     Condition: "Healthy",
+  //   },
+  //   // Add more animals as needed
+  // ];
+  const [animals, setAnimalsData] = useState([]);
+    useEffect(() => {
+      fetchAnimalsData();
+    }, []);
+  
+    const fetchAnimalsData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/v1/blogs");
+        setAnimalsData(response.data.data);
+      } catch (error) {
+        console.error("Error fetching blogs data:", error);
+      }
+    };
   const data = [
     { month: "January", money: 5000 },
     { month: "February", money: 7000 },
@@ -336,6 +350,7 @@ const NgoDashboard = () => {
           </Grid>
         </section>
       </Box>
+    <FooterComponent/>
     </>
   );
 };

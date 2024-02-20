@@ -16,16 +16,24 @@ const CarouselComponent = () => {
       swipeable={true}
     >
       {/* Carousel items */}
-      <Card sx={{ width: "75vw", height: "350px", margin: "0 auto" }}>
-        <img src="https://wp.globaluniversitysystems.com/mua/wp-content/uploads/sites/10/2023/02/istock-482499394.webp" />
+      <Card sx={{ width: '75vw', height: '350px', margin: '0 auto' }}>
+        <img
+          src="https://media.istockphoto.com/id/941762276/photo/doctors-walking-in-clinic.jpg?s=612x612&w=0&k=20&c=OwsH-lT88akwiPOYm1kTVs6c7mXHBUDgUbnQuCssyyg="
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+        />
       </Card>
-      <Card sx={{ width: "75vw", height: "350px", margin: "0 auto" }}>
-        <img src="https://shuddhi.org/uploads/3/4/7/9/34791871/cloth-distribution-shuddhi-ngo-india-clidren-women-environment_orig.jpg" />
+      <Card sx={{ width: '75vw', height: '350px', margin: '0 auto' }}>
+        <img
+          src="https://shuddhi.org/uploads/3/4/7/9/34791871/cloth-distribution-shuddhi-ngo-india-clidren-women-environment_orig.jpg"
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+        />
       </Card>
-      <Card sx={{ width: "75vw", height: "350px", margin: "0 auto" }}>
-        <img src="https://5.imimg.com/data5/HG/YA/MY-12789234/clinic-interior-designing-services-500x500.jpg" />
+      <Card sx={{ width: '75vw', height: '350px', margin: '0 auto' }}>
+        <img
+          src="https://5.imimg.com/data5/HG/YA/MY-12789234/clinic-interior-designing-services-500x500.jpg"
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+        />
       </Card>
-
       {/* Add more items as needed */}
     </Carousel>
   );
