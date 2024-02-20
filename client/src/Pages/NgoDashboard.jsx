@@ -2,6 +2,9 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 import NgoNavbarComponent from "../Components/NgoNavbarComponent";
 import PetsIcon from "@mui/icons-material/Pets";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import FaceIcon from "@mui/icons-material/Face";
+import MasksIcon from "@mui/icons-material/Masks";
 import {
   LineChart,
   Line,
@@ -201,7 +204,7 @@ const NgoDashboard = () => {
                     variant="h4"
                     sx={{ textAlign: "left", marginBottom: "40px" }}
                   >
-                    Animal Stats
+                    Team Stats
                   </Typography>
                   <Box
                     sx={{
@@ -210,9 +213,9 @@ const NgoDashboard = () => {
                       marginBottom: "20px",
                     }}
                   >
-                    <PetsIcon />
+                    <FaceIcon />
                     <Typography variant="h5" sx={{ marginLeft: "5px" }}>
-                      Saved :{" "}
+                      Volunteers :{" "}
                     </Typography>
                     <Typography variant="h5"> 23</Typography>
                   </Box>
@@ -223,9 +226,9 @@ const NgoDashboard = () => {
                       marginBottom: "20px",
                     }}
                   >
-                    <PetsIcon />
+                    <MasksIcon />
                     <Typography variant="h5" sx={{ marginLeft: "5px" }}>
-                      Healed :{" "}
+                      Doctors :{" "}
                     </Typography>
                     <Typography variant="h5"> 23</Typography>
                   </Box>
@@ -236,9 +239,9 @@ const NgoDashboard = () => {
                       marginBottom: "20px",
                     }}
                   >
-                    <PetsIcon />
+                    <LocalHospitalIcon />
                     <Typography variant="h5" sx={{ marginLeft: "5px" }}>
-                      Adopted :{" "}
+                      Clinics :{" "}
                     </Typography>
                     <Typography variant="h5"> 23</Typography>
                   </Box>
