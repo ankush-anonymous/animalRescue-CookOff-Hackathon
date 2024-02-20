@@ -81,7 +81,7 @@ function NavbarComponent() {
             }}
           >
             <img
-              src="https://res.cloudinary.com/dsx8eh1hj/image/upload/v1708374951/happytaills_zu403m.png"
+              src="https://res.cloudinary.com/dsx8eh1hj/image/upload/v1708386085/happytails_orjwh4.png"
               alt="Logo"
               style={{
                 maxWidth: "100%",

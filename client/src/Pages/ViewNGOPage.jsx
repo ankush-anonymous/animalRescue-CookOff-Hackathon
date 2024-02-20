@@ -17,7 +17,7 @@ import {
 import NavbarComponent from "../Components/NavbarComponent";
 import SearchIcon from "@mui/icons-material/Search";
 
-function ViewNGOPage() { 
+function ViewNGOPage() {
   const [NgosData, setNgosData] = useState([]);
   useEffect(() => {
     fetchNgosData();
@@ -25,10 +25,8 @@ function ViewNGOPage() {
 
   const fetchNgosData = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/api/v1/ngos"
-      );
-      setNgosData(response.data.data); 
+      const response = await axios.get("http://localhost:5000/api/v1/ngos");
+      setNgosData(response.data.data);
     } catch (error) {
       console.error("Error fetching blogs data:", error);
     }
@@ -205,6 +203,6 @@ function ViewNGOPage() {
       </Box>
     </>
   );
-};
+}
 
 export default ViewNGOPage;

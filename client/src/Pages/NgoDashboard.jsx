@@ -14,8 +14,36 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import AllBlogsListComponent from "../Components/AllBlogsListComponent";
+import CarouselComponentForNGO from "../Components/CarouselComponentForNGO";
 
 const NgoDashboard = () => {
+  const animals = [
+    {
+      name: "Max",
+      color: "Brown",
+      Type: "Dog",
+      Breed: "Labrador Retriever",
+      photo:
+        "https://miro.medium.com/v2/resize:fit:1000/1*cFfa3LOIy4Kr8qadDGK1Lg.png",
+      Identification_Mark: "Small scar on the left ear",
+      locationOfFound: "Park",
+      Condition: "Healthy",
+    },
+    {
+      name: "Max",
+      color: "Brown",
+      Type: "Dog",
+      Breed: "Labrador Retriever",
+      photo:
+        "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFuaW1hbCUyMGNhcmV8ZW58MHx8MHx8fDA%3D",
+      Identification_Mark: "Small scar on the left ear",
+      locationOfFound: "Park",
+      Condition: "Healthy",
+    },
+    // Add more animals as needed
+  ];
+
   const data = [
     { month: "January", money: 5000 },
     { month: "February", money: 7000 },
@@ -110,6 +138,7 @@ const NgoDashboard = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     height: "300px",
+                    borderRadius: "10px",
                   }}
                 >
                   <Typography
@@ -168,6 +197,7 @@ const NgoDashboard = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     height: "300px",
+                    borderRadius: "10px",
                   }}
                 >
                   <Typography variant="h5" sx={{ marginBottom: "20px" }}>
@@ -198,6 +228,7 @@ const NgoDashboard = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     height: "300px",
+                    borderRadius: "10px",
                   }}
                 >
                   <Typography
@@ -250,11 +281,60 @@ const NgoDashboard = () => {
             </Grid>
           </Box>
         </section>
-        {/* NGO Stats  */}
-
-        {/* Funds Section  */}
 
         {/* Blogs Section  */}
+        <section sx={{}}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={5}>
+              <Box
+                sx={{
+                  border: "1px solid black",
+                  width: "fit-content",
+                  padding: "20px",
+                  marginLeft: "20px",
+                  justifyContent: "flex-end",
+                  borderRadius: "10px",
+                }}
+              >
+                <Typography variant="h4">Blogs</Typography>
+                <AllBlogsListComponent />
+                <br />
+                <Box
+                  sx={{
+                    marginTop: "20px",
+                    justifyContent: "flex-end",
+                    display: "flex",
+                  }}
+                >
+                  <Button variant="outlined">Add Animal</Button>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={7}>
+              <Box
+                sx={{
+                  border: "1px solid black",
+                  width: "90%",
+                  padding: "20px",
+                  marginLeft: "20px",
+                  justifyContent: "flex-end",
+                  borderRadius: "10px",
+                }}
+              >
+                <CarouselComponentForNGO slides={animals} />
+                <Box
+                  sx={{
+                    marginTop: "20px",
+                    justifyContent: "flex-end",
+                    display: "flex",
+                  }}
+                >
+                  <Button variant="outlined">Add Animal</Button>
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </section>
       </Box>
     </>
   );
